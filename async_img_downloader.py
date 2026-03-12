@@ -24,8 +24,9 @@ def async_timer(func):
         end_time = time.perf_counter()
         print(f"Асинхронная функция {func.__name__} выполнялась "
               f"{end_time - start_time:.4f} секунд"
-        )
+              )
         return result
+
     return wrapper
 
 
@@ -35,18 +36,18 @@ class AsyncImageDownloader:
         self.max_workers: int = max_workers
 
     async def _download_image(self,
-        session: aiohttp.ClientSession,
-        url: str,
-        save_path: str
-    ) -> None:
+                              session: aiohttp.ClientSession,
+                              url: str,
+                              save_path: str
+                              ) -> None:
 
         try:
             # отправляем запрос с пользовательским User-Agent
             # и ожидаем ответ от сервера
             async with session.get(
-                url,
-                headers={'User-Agent': 'Mozilla/5.0'},
-                timeout=30
+                    url,
+                    headers={'User-Agent': 'Mozilla/5.0'},
+                    timeout=30
             ) as response:
 
                 # если сервер вернул ошибку (например 404),
@@ -69,9 +70,9 @@ class AsyncImageDownloader:
 
     @async_timer
     async def download_all(
-        self,
-        image_urls: list[str],
-        dir_path: str = "."
+            self,
+            image_urls: list[str],
+            dir_path: str = "."
     ) -> None:
 
         # создаём коннектор, который ограничивает количество
