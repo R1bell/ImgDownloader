@@ -39,6 +39,7 @@ class ImageDownloader:
             })
 
             # Читаем данные из запроса, с таймаутом в 30 сек
+            # Если статус код >= 400 выбрасываем ошибку
             with urllib.request.urlopen(req, timeout=30) as response:
                 if response.status >= 400:
                     raise Exception(f"HTTP error {response.status}")
@@ -56,7 +57,7 @@ class ImageDownloader:
             print(f"Ошибка загрузки {url}: {e}")
 
     @timer
-    def download_all(self, image_urls: list[str], dir_path: str = ".") -> tuple[int, int]:
+    def download_all(self, image_urls: list[str], dir_path: str = ".") -> None:
         # создаём пул потоков для параллельной загрузки изображений
         # одновременно будет работать не больше max_workers потоков
         with ThreadPoolExecutor(max_workers=self.max_workers) as executor:

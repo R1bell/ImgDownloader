@@ -35,11 +35,12 @@ class AsyncImageDownloader:
         # максимальное количество одновременных соединений
         self.max_workers: int = max_workers
 
-    async def _download_image(self,
-                              session: aiohttp.ClientSession,
-                              url: str,
-                              save_path: str
-                              ) -> None:
+    async def _download_image(
+            self,
+            session: aiohttp.ClientSession,
+            url: str,
+            save_path: str
+    ) -> None:
 
         try:
             # отправляем запрос с пользовательским User-Agent
