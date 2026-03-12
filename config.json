@@ -1,0 +1,16 @@
+{
+    "max_workers": 2,
+    "urls": [
+        "https://picsum.photos/400/300?random=1",
+        "https://picsum.photos/400/300?random=2",
+        "https://picsum.photos/400/300?random=3",
+        "https://picsum.photos/400/300?random=4",
+        "https://picsum.photos/400/300?random=5",
+        "https://picsum.photos/400/300?random=6",
+        "https://picsum.photos/400/300?random=7",
+        "https://picsum.photos/400/300?random=8",
+        "https://picsum.photos/400/300?random=9",
+        "https://picsum.photos/400/300?random=10"
+    ],
+    "dir_path": "downloaded_images"
+}
